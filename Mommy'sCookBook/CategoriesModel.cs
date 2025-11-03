@@ -10,6 +10,6 @@ namespace Mommy_sCookBook
     {
         public int ID { get; set; }
         public int CategoryName { get; set; }
-        public int CategoryDescription { get; set; }
+        
     }
 }

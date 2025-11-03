@@ -11,6 +11,7 @@ namespace Mommy_sCookBook
         public int ID { get; set; }
         public List<IngredientModel> Ingredients { get; set; } = new List<IngredientModel>();
         public int Quantity { get; set; }
+        public int Unit { get; set; }
         public bool isPurchased { get; set; }
         public DateTime DateAdded { get; set; }
     }

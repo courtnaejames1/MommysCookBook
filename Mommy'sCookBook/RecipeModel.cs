@@ -9,13 +9,10 @@ namespace Mommy_sCookBook
     public class RecipeModel
     {
         public int ID { get; set; }
-        public string Description { get; set; }
         public string RecipeName { get; set; }
+        public CategoriesModel Category { get; set; }
         public List<RecipeIngredients> Ingredients { get; set; } = new List<RecipeIngredients>();
-        public string PrepTime { get; set; }
-        public string CookTime { get; set; }
-
-
-
+        public DateTime DateAdded { get; set; }
+        public DateTime DateModified { get; set; }
     }
 }
