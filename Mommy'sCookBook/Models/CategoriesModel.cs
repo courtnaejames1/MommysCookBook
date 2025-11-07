@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mommy_sCookBook
+namespace Mommy_sCookBook.Models
 {
     public class CategoriesModel
     {

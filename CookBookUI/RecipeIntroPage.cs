@@ -21,5 +21,17 @@ namespace CookBookUI
         {
 
         }
+
+        private void viewRecipesButton_Click(object sender, EventArgs e)
+        {
+            RecipeViewer vwr = new RecipeViewer();
+            vwr.Show();
+        }
+
+        private void createRecipeButton_Click(object sender, EventArgs e)
+        {
+            CreateRecipe createRecipe = new CreateRecipe();
+            createRecipe.Show();
+        }
     }
 }

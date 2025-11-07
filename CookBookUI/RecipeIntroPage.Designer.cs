@@ -58,6 +58,7 @@
             viewRecipesButton.TabIndex = 4;
             viewRecipesButton.Text = "View Recipes";
             viewRecipesButton.UseVisualStyleBackColor = false;
+            viewRecipesButton.Click += viewRecipesButton_Click;
             // 
             // createRecipeButton
             // 
@@ -72,6 +73,7 @@
             createRecipeButton.TabIndex = 5;
             createRecipeButton.Text = "Create Recipe";
             createRecipeButton.UseVisualStyleBackColor = false;
+            createRecipeButton.Click += createRecipeButton_Click;
             // 
             // RecipeIntroPage
             // 
@@ -82,7 +84,7 @@
             Controls.Add(viewRecipesButton);
             Controls.Add(headerLabel);
             Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "RecipeIntroPage";
             Text = "RecipeIntroPage";
             ResumeLayout(false);

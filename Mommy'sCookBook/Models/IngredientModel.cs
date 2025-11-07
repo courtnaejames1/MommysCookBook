@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mommy_sCookBook
+namespace Mommy_sCookBook.Models
 {
     public class IngredientModel
     {
         public int ID { get; set; }
         public string IngredientName { get; set; }
-        public int DefaultUnit { get; set; }
+        public string DefaultUnit { get; set; }
         
     }
 }

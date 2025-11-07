@@ -33,10 +33,10 @@
             recipeNameValue = new TextBox();
             label1 = new Label();
             recipeNameLabel = new Label();
-            selectTeamMemberDropDown = new ComboBox();
+            selectCategoryDropDown = new ComboBox();
             addRecipeButton = new Button();
             ingredientInfoGroupBox = new GroupBox();
-            textBox2 = new TextBox();
+            measurementValue = new TextBox();
             measurementLabel = new Label();
             ingredientLabel = new Label();
             ingredientValue = new TextBox();
@@ -96,13 +96,13 @@
             recipeNameLabel.TabIndex = 6;
             recipeNameLabel.Text = "Recipe Name";
             // 
-            // selectTeamMemberDropDown
+            // selectCategoryDropDown
             // 
-            selectTeamMemberDropDown.FormattingEnabled = true;
-            selectTeamMemberDropDown.Location = new Point(67, 234);
-            selectTeamMemberDropDown.Name = "selectTeamMemberDropDown";
-            selectTeamMemberDropDown.Size = new Size(171, 29);
-            selectTeamMemberDropDown.TabIndex = 6;
+            selectCategoryDropDown.FormattingEnabled = true;
+            selectCategoryDropDown.Location = new Point(67, 234);
+            selectCategoryDropDown.Name = "selectCategoryDropDown";
+            selectCategoryDropDown.Size = new Size(171, 29);
+            selectCategoryDropDown.TabIndex = 6;
             // 
             // addRecipeButton
             // 
@@ -120,7 +120,7 @@
             // 
             // ingredientInfoGroupBox
             // 
-            ingredientInfoGroupBox.Controls.Add(textBox2);
+            ingredientInfoGroupBox.Controls.Add(measurementValue);
             ingredientInfoGroupBox.Controls.Add(measurementLabel);
             ingredientInfoGroupBox.Controls.Add(ingredientLabel);
             ingredientInfoGroupBox.Controls.Add(ingredientValue);
@@ -133,13 +133,13 @@
             ingredientInfoGroupBox.TabStop = false;
             ingredientInfoGroupBox.Text = "Ingredient info";
             // 
-            // textBox2
+            // measurementValue
             // 
-            textBox2.ForeColor = SystemColors.MenuHighlight;
-            textBox2.Location = new Point(144, 98);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(171, 29);
-            textBox2.TabIndex = 8;
+            measurementValue.ForeColor = SystemColors.MenuHighlight;
+            measurementValue.Location = new Point(144, 98);
+            measurementValue.Name = "measurementValue";
+            measurementValue.Size = new Size(171, 29);
+            measurementValue.TabIndex = 8;
             // 
             // measurementLabel
             // 
@@ -180,6 +180,7 @@
             addIngredientButton.TabIndex = 3;
             addIngredientButton.Text = "Add Ingredient";
             addIngredientButton.UseVisualStyleBackColor = false;
+            addIngredientButton.Click += addIngredientButton_Click;
             // 
             // instructionValue
             // 
@@ -195,7 +196,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
             Controls.Add(instructionValue);
-            Controls.Add(selectTeamMemberDropDown);
+            Controls.Add(selectCategoryDropDown);
             Controls.Add(label1);
             Controls.Add(ingredientInfoGroupBox);
             Controls.Add(recipeNameLabel);
@@ -220,13 +221,13 @@
         private TextBox recipeNameValue;
         private Label label1;
         private Label recipeNameLabel;
-        private ComboBox selectTeamMemberDropDown;
+        private ComboBox selectCategoryDropDown;
         private Button addRecipeButton;
         private GroupBox ingredientInfoGroupBox;
         private Label ingredientLabel;
         private TextBox ingredientValue;
         private Label measurementLabel;
-        private TextBox textBox2;
+        private TextBox measurementValue;
         private Button addIngredientButton;
         private RichTextBox instructionValue;
     }
