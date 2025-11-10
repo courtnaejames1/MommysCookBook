@@ -1,4 +1,5 @@
-﻿using Mommy_sCookBook.Models;
+﻿using Mommy_sCookBook;
+using Mommy_sCookBook.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,29 @@ namespace CookBookUI
 {
     public partial class CreateRecipe : Form
     {
+        private IRecipeRequestor callingForm; 
 
-        //private List<IngredientModel> availableIngredientsModel = GlobalConfig.Connection.
+        //private List<IngredientModel> availableIngredientsModel = GlobalConfig.Connection.GetAllIngredients();
+        private List<IngredientModel> selectedIngredients = new List<IngredientModel>();
+
         public CreateRecipe()
         {
             InitializeComponent();
+        }
+        public CreateRecipe(IRecipeRequestor caller)
+        {
+            InitializeComponent();
+            callingForm = caller;
+            WireUp();
+        }
+
+        private void WireUp()
+        {
+            
+            IngredientListBox.DataSource = null;
+            IngredientListBox.DataSource = selectedIngredients;
+            IngredientListBox.DisplayMember = "FullIngredient";
+
         }
 
         private bool ValidForm()
@@ -35,8 +54,15 @@ namespace CookBookUI
             ingM.DefaultUnit = measurementValue.Text;
 
             ingM = GlobalConfig.Connection.CreateIngredient(ingM);
+            selectedIngredients.Add(ingM);
+            WireUp();
+
+            ingredientValue.Text = "";
+            measurementValue.Text = "";
 
         }
+        
+        
 
         
     }

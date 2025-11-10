@@ -1,3 +1,5 @@
+using Mommy_sCookBook;
+
 namespace CookBookUI
 {
     internal static class Program
@@ -11,6 +13,7 @@ namespace CookBookUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            GlobalConfig.InitializeConnection();
             Application.Run(new RecipeIntroPage());
         }
     }

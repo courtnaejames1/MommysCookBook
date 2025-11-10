@@ -31,8 +31,8 @@
             headerLabel = new Label();
             recipeListBox = new ListBox();
             createRecipeButton = new Button();
-            viewRecipeButton = new Button();
             deleteRecipeButton = new Button();
+            viewRecipesButton = new Button();
             SuspendLayout();
             // 
             // headerLabel
@@ -70,21 +70,7 @@
             createRecipeButton.TabIndex = 2;
             createRecipeButton.Text = "Create Recipe";
             createRecipeButton.UseVisualStyleBackColor = false;
-            // 
-            // viewRecipeButton
-            // 
-            viewRecipeButton.BackColor = SystemColors.Control;
-            viewRecipeButton.FlatStyle = FlatStyle.Flat;
-            viewRecipeButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            viewRecipeButton.ForeColor = SystemColors.MenuHighlight;
-            viewRecipeButton.Location = new Point(714, 294);
-            viewRecipeButton.Margin = new Padding(4);
-            viewRecipeButton.Name = "viewRecipeButton";
-            viewRecipeButton.Size = new Size(144, 50);
-            viewRecipeButton.TabIndex = 3;
-            viewRecipeButton.Text = "View Recipe";
-            viewRecipeButton.UseVisualStyleBackColor = false;
-            viewRecipeButton.Click += button1_Click;
+            createRecipeButton.Click += createRecipeButton_Click;
             // 
             // deleteRecipeButton
             // 
@@ -99,14 +85,30 @@
             deleteRecipeButton.TabIndex = 4;
             deleteRecipeButton.Text = "Delete Recipe";
             deleteRecipeButton.UseVisualStyleBackColor = false;
+            deleteRecipeButton.Click += deleteRecipeButton_Click;
+            // 
+            // viewRecipesButton
+            // 
+            viewRecipesButton.BackColor = SystemColors.Control;
+            viewRecipesButton.FlatStyle = FlatStyle.Flat;
+            viewRecipesButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            viewRecipesButton.ForeColor = SystemColors.MenuHighlight;
+            viewRecipesButton.Location = new Point(714, 289);
+            viewRecipesButton.Margin = new Padding(4);
+            viewRecipesButton.Name = "viewRecipesButton";
+            viewRecipesButton.Size = new Size(144, 50);
+            viewRecipesButton.TabIndex = 5;
+            viewRecipesButton.Text = "View Recipes";
+            viewRecipesButton.UseVisualStyleBackColor = false;
+            viewRecipesButton.Click += viewRecipesButton_Click;
             // 
             // RecipeViewer
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 630);
+            Controls.Add(viewRecipesButton);
             Controls.Add(deleteRecipeButton);
-            Controls.Add(viewRecipeButton);
             Controls.Add(createRecipeButton);
             Controls.Add(recipeListBox);
             Controls.Add(headerLabel);
@@ -124,7 +126,7 @@
         private Label headerLabel;
         private ListBox recipeListBox;
         private Button createRecipeButton;
-        private Button viewRecipeButton;
         private Button deleteRecipeButton;
+        private Button viewRecipesButton;
     }
 }
