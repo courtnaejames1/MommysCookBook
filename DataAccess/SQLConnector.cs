@@ -1,6 +1,8 @@
-﻿using Mommy_sCookBook.Models;
+﻿using Dapper;
+using Mommy_sCookBook.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,25 @@ namespace Mommy_sCookBook.DataAccess
     {
         public IngredientModel CreateIngredient(IngredientModel model)
         {
-            throw new NotImplementedException();
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("MommysCookBook")))
+            {
+                var i = new DynamicParameters();
+                i.Add("@ingredientName", model.IngredientName);
+
+
+                if (model.DefaultUnit == string.Empty)
+                {
+                    i.Add("@defaultUnit", '0');
+                }
+                else
+                {
+                    i.Add("@defaultUnit", model.DefaultUnit);
+                }
+
+                connection.Execute("sp_Ingredients_Insert", i, commandType: CommandType.StoredProcedure);
+                model.ID = i.Get<int>("@id");
+                return model; 
+            }
         }
 
         public RecipeModel CreateRecipe(RecipeModel model)
