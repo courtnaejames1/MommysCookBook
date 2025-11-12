@@ -37,11 +37,12 @@ namespace Mommy_sCookBook.DataAccess
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("MommysCookBook")))
             {
+                
                 var r = new DynamicParameters();
                 r.Add("@recipeName", model.RecipeName);
                 r.Add("@CategoryID", model.Category.ID);
                 r.Add("@instructions", model.Instructions);
-                r.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                r.Add("@id",0 , dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("sp_Recipe_Insert", r, commandType: CommandType.StoredProcedure);
                 model.ID = r.Get<int>("@id");
@@ -69,9 +70,14 @@ namespace Mommy_sCookBook.DataAccess
         //    throw new NotImplementedException();
         //}
 
-        //public List<RecipeModel> GetAllRecipes()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<RecipeModel> GetAllRecipes()
+        {
+            List<RecipeModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("MommysCookBook")))
+            {
+                output = connection.Query<RecipeModel>("sp_Recipes_GetAll").ToList();
+            }
+            return output;
+        }
     }
 }

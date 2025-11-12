@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mommy_sCookBook.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace CookBookUI
 {
     public partial class ViewRecipeForm : Form
     {
-        public ViewRecipeForm()
+        public ViewRecipeForm(RecipeModel model)
         {
             InitializeComponent();
         }

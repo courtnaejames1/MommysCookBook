@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mommy_sCookBook;
+using Mommy_sCookBook.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
@@ -11,19 +13,24 @@ using System.Windows.Forms;
 
 namespace CookBookUI
 {
-    public partial class RecipeViewer : Form
+    public partial class RecipeViewer : Form, IRecipeRequestor
     {
+        List<RecipeModel> selectedRecipes = new List<RecipeModel>();
+        List<RecipeModel> availableRecipes = GlobalConfig.Connection.GetAllRecipes();
+
         public RecipeViewer()
         {
             InitializeComponent();
         }
 
-        private void RecipeViewer_Load(object sender, EventArgs e)
+        public void WireUp()
         {
-
+            recipeListBox.DataSource = null;
+            recipeListBox.DataSource = availableRecipes;
+            recipeListBox.DisplayMember = "RecipeName";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       private void button1_Click(object sender, EventArgs e)
         {
 
         }
@@ -34,15 +41,24 @@ namespace CookBookUI
             frm.Show();
         }
 
-        private void viewRecipesButton_Click(object sender, EventArgs e)
+        private void deleteSelectedRecipeButton_Click(object sender, EventArgs e)
         {
-            ViewRecipeForm frm = new ViewRecipeForm();
+            
+            RecipeModel rm = (RecipeModel)recipeListBox.SelectedItem;
+
+        }
+
+        private void viewSelectedRecipesButton_Click(object sender, EventArgs e)
+        {
+            RecipeModel rm = (RecipeModel)recipeListBox.SelectedItem;
+            ViewRecipeForm frm = new ViewRecipeForm(rm);
             frm.Show();
         }
 
-        private void deleteRecipeButton_Click(object sender, EventArgs e)
+        public void RecipeComplete(RecipeModel model)
         {
-            // TODO delete from list of 
+            selectedRecipes.Add(model);
+            WireUp();
         }
     }
 }

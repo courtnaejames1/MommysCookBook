@@ -210,6 +210,7 @@
             Margin = new Padding(4);
             Name = "CreateRecipeForm";
             Text = "CreateRecipeForm";
+            
             ingredientInfoGroupBox.ResumeLayout(false);
             ingredientInfoGroupBox.PerformLayout();
             ResumeLayout(false);

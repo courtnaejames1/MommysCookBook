@@ -9,10 +9,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace CookBookUI
 {
-    public partial class CreateRecipeForm : Form, IRecipeRequestor
+    public partial class CreateRecipeForm : Form
     {
         private IRecipeRequestor callingForm;
 
@@ -21,10 +22,7 @@ namespace CookBookUI
         private List<CategoryModel> availableCategories = GlobalConfig.Connection.GetAllCategories();
         private List<RecipeModel> selectedRecipes = new List<RecipeModel>();
 
-        //public CreateRecipe()
-        //{
-        //    InitializeComponent();
-        //}
+
         public CreateRecipeForm()
         {
             InitializeComponent();
@@ -42,6 +40,7 @@ namespace CookBookUI
             selectCategoryDropDown.DataSource = null;
             selectCategoryDropDown.DataSource = availableCategories;
             selectCategoryDropDown.DisplayMember = "CategoryName";
+            selectCategoryDropDown.ValueMember = "ID";
 
         }
 
@@ -75,8 +74,14 @@ namespace CookBookUI
         {
             RecipeModel model = new RecipeModel();
             model.RecipeName = recipeNameValue.Text;
-            model.Category = (CategoryModel)selectCategoryDropDown.SelectedItem;
-            model.Instructions = instructionValue.Text;
+            model.CategoryID = (int)selectCategoryDropDown.SelectedValue;
+
+            // Create a category object to store
+            model.Category = new CategoryModel
+            {
+                ID = model.CategoryID,
+                CategoryName = selectCategoryDropDown.Text
+            };
 
             GlobalConfig.Connection.CreateRecipe(model);
             callingForm.RecipeComplete(model);
@@ -88,10 +93,12 @@ namespace CookBookUI
 
         }
 
-        public void RecipeComplete(RecipeModel model)
+        private void CreateRecipeForm_Load(object sender, EventArgs e)
         {
-            selectedRecipes.Add(model);
-            WireUp();
+            selectCategoryDropDown.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //Set preferred index to show as default value
+            selectCategoryDropDown.SelectedIndex = 1;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Mommy_sCookBook.DataAccess
         RecipeModel CreateRecipe(RecipeModel model );
         //ShoppingListItemsModel CreateShoppingList(ShoppingListItemsModel model);
         //List<IngredientModel> GetAllIngredients();
-        //List<RecipeModel> GetAllRecipes();
+        List<RecipeModel> GetAllRecipes();
 
         List<CategoryModel> GetAllCategories();
 

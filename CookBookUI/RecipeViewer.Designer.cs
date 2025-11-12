@@ -31,8 +31,8 @@
             headerLabel = new Label();
             recipeListBox = new ListBox();
             createRecipeButton = new Button();
-            deleteRecipeButton = new Button();
-            viewRecipesButton = new Button();
+            deleteSelectedRecipeButton = new Button();
+            viewSelectedRecipesButton = new Button();
             SuspendLayout();
             // 
             // headerLabel
@@ -72,43 +72,43 @@
             createRecipeButton.UseVisualStyleBackColor = false;
             createRecipeButton.Click += createRecipeButton_Click;
             // 
-            // deleteRecipeButton
+            // deleteSelectedRecipeButton
             // 
-            deleteRecipeButton.BackColor = SystemColors.Control;
-            deleteRecipeButton.FlatStyle = FlatStyle.Flat;
-            deleteRecipeButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            deleteRecipeButton.ForeColor = SystemColors.MenuHighlight;
-            deleteRecipeButton.Location = new Point(714, 398);
-            deleteRecipeButton.Margin = new Padding(4);
-            deleteRecipeButton.Name = "deleteRecipeButton";
-            deleteRecipeButton.Size = new Size(144, 50);
-            deleteRecipeButton.TabIndex = 4;
-            deleteRecipeButton.Text = "Delete Recipe";
-            deleteRecipeButton.UseVisualStyleBackColor = false;
-            deleteRecipeButton.Click += deleteRecipeButton_Click;
+            deleteSelectedRecipeButton.BackColor = SystemColors.Control;
+            deleteSelectedRecipeButton.FlatStyle = FlatStyle.Flat;
+            deleteSelectedRecipeButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            deleteSelectedRecipeButton.ForeColor = SystemColors.MenuHighlight;
+            deleteSelectedRecipeButton.Location = new Point(714, 411);
+            deleteSelectedRecipeButton.Margin = new Padding(4);
+            deleteSelectedRecipeButton.Name = "deleteSelectedRecipeButton";
+            deleteSelectedRecipeButton.Size = new Size(144, 64);
+            deleteSelectedRecipeButton.TabIndex = 6;
+            deleteSelectedRecipeButton.Text = "Delete Selected Recipe";
+            deleteSelectedRecipeButton.UseVisualStyleBackColor = false;
+            deleteSelectedRecipeButton.Click += deleteSelectedRecipeButton_Click;
             // 
-            // viewRecipesButton
+            // viewSelectedRecipesButton
             // 
-            viewRecipesButton.BackColor = SystemColors.Control;
-            viewRecipesButton.FlatStyle = FlatStyle.Flat;
-            viewRecipesButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            viewRecipesButton.ForeColor = SystemColors.MenuHighlight;
-            viewRecipesButton.Location = new Point(714, 289);
-            viewRecipesButton.Margin = new Padding(4);
-            viewRecipesButton.Name = "viewRecipesButton";
-            viewRecipesButton.Size = new Size(144, 50);
-            viewRecipesButton.TabIndex = 5;
-            viewRecipesButton.Text = "View Recipes";
-            viewRecipesButton.UseVisualStyleBackColor = false;
-            viewRecipesButton.Click += viewRecipesButton_Click;
+            viewSelectedRecipesButton.BackColor = SystemColors.Control;
+            viewSelectedRecipesButton.FlatStyle = FlatStyle.Flat;
+            viewSelectedRecipesButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            viewSelectedRecipesButton.ForeColor = SystemColors.MenuHighlight;
+            viewSelectedRecipesButton.Location = new Point(714, 293);
+            viewSelectedRecipesButton.Margin = new Padding(4);
+            viewSelectedRecipesButton.Name = "viewSelectedRecipesButton";
+            viewSelectedRecipesButton.Size = new Size(144, 67);
+            viewSelectedRecipesButton.TabIndex = 7;
+            viewSelectedRecipesButton.Text = "View Selected Recipe";
+            viewSelectedRecipesButton.UseVisualStyleBackColor = false;
+            viewSelectedRecipesButton.Click += viewSelectedRecipesButton_Click;
             // 
             // RecipeViewer
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1028, 630);
-            Controls.Add(viewRecipesButton);
-            Controls.Add(deleteRecipeButton);
+            Controls.Add(viewSelectedRecipesButton);
+            Controls.Add(deleteSelectedRecipeButton);
             Controls.Add(createRecipeButton);
             Controls.Add(recipeListBox);
             Controls.Add(headerLabel);
@@ -116,7 +116,7 @@
             Margin = new Padding(4);
             Name = "RecipeViewer";
             Text = "RecipeViewer";
-            Load += RecipeViewer_Load;
+            //Load += RecipeViewer_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -126,7 +126,7 @@
         private Label headerLabel;
         private ListBox recipeListBox;
         private Button createRecipeButton;
-        private Button deleteRecipeButton;
-        private Button viewRecipesButton;
+        private Button deleteSelectedRecipeButton;
+        private Button viewSelectedRecipesButton;
     }
 }
