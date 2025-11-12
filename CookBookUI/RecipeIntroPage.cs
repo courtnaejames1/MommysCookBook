@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mommy_sCookBook;
+using Mommy_sCookBook.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace CookBookUI
 {
     public partial class RecipeIntroPage : Form
     {
+        List<RecipeModel> selectedRecipe = new List<RecipeModel>();
         public RecipeIntroPage()
         {
             InitializeComponent();
@@ -30,8 +33,10 @@ namespace CookBookUI
 
         private void createRecipeButton_Click(object sender, EventArgs e)
         {
-            CreateRecipe createRecipe = new CreateRecipe();
+            CreateRecipeForm createRecipe = new CreateRecipeForm();
             createRecipe.Show();
         }
+
+        
     }
 }

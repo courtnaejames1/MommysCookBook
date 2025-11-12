@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mommy_sCookBook.Models
 {
-    public class CategoriesModel
+    public class CategoryModel
     {
         /// <summary>
         /// Unique identifiers for CategoryModel
@@ -15,7 +15,7 @@ namespace Mommy_sCookBook.Models
         /// <summary>
         /// Represents the name of the Category for the recipe added 
         /// </summary>
-        public int CategoryName { get; set; }
+        public string CategoryName { get; set; }
         
     }
 }

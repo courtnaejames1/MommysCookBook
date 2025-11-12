@@ -1,6 +1,6 @@
 ﻿namespace CookBookUI
 {
-    partial class CreateRecipe
+    partial class CreateRecipeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,6 @@
             label1 = new Label();
             recipeNameLabel = new Label();
             selectCategoryDropDown = new ComboBox();
-            addRecipeButton = new Button();
             ingredientInfoGroupBox = new GroupBox();
             measurementValue = new TextBox();
             measurementLabel = new Label();
@@ -42,6 +41,7 @@
             ingredientValue = new TextBox();
             addIngredientButton = new Button();
             instructionValue = new RichTextBox();
+            createRecipeButton = new Button();
             ingredientInfoGroupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,20 +104,6 @@
             selectCategoryDropDown.Size = new Size(171, 29);
             selectCategoryDropDown.TabIndex = 6;
             // 
-            // addRecipeButton
-            // 
-            addRecipeButton.BackColor = Color.White;
-            addRecipeButton.FlatStyle = FlatStyle.Flat;
-            addRecipeButton.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold);
-            addRecipeButton.ForeColor = SystemColors.MenuHighlight;
-            addRecipeButton.Location = new Point(633, 549);
-            addRecipeButton.Margin = new Padding(4);
-            addRecipeButton.Name = "addRecipeButton";
-            addRecipeButton.Size = new Size(184, 52);
-            addRecipeButton.TabIndex = 8;
-            addRecipeButton.Text = "Add Recipe";
-            addRecipeButton.UseVisualStyleBackColor = false;
-            // 
             // ingredientInfoGroupBox
             // 
             ingredientInfoGroupBox.Controls.Add(measurementValue);
@@ -132,6 +118,7 @@
             ingredientInfoGroupBox.TabIndex = 9;
             ingredientInfoGroupBox.TabStop = false;
             ingredientInfoGroupBox.Text = "Ingredient info";
+            ingredientInfoGroupBox.Enter += ingredientInfoGroupBox_Enter;
             // 
             // measurementValue
             // 
@@ -176,7 +163,7 @@
             addIngredientButton.Location = new Point(70, 169);
             addIngredientButton.Margin = new Padding(4);
             addIngredientButton.Name = "addIngredientButton";
-            addIngredientButton.Size = new Size(161, 34);
+            addIngredientButton.Size = new Size(169, 43);
             addIngredientButton.TabIndex = 3;
             addIngredientButton.Text = "Add Ingredient";
             addIngredientButton.UseVisualStyleBackColor = false;
@@ -190,24 +177,39 @@
             instructionValue.TabIndex = 11;
             instructionValue.Text = "";
             // 
-            // CreateRecipe
+            // createRecipeButton
+            // 
+            createRecipeButton.BackColor = Color.White;
+            createRecipeButton.FlatStyle = FlatStyle.Flat;
+            createRecipeButton.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold);
+            createRecipeButton.ForeColor = SystemColors.MenuHighlight;
+            createRecipeButton.Location = new Point(486, 543);
+            createRecipeButton.Margin = new Padding(4);
+            createRecipeButton.Name = "createRecipeButton";
+            createRecipeButton.Size = new Size(224, 52);
+            createRecipeButton.TabIndex = 12;
+            createRecipeButton.Text = "Create Recipe";
+            createRecipeButton.UseVisualStyleBackColor = false;
+            createRecipeButton.Click += createRecipeButton_Click;
+            // 
+            // CreateRecipeForm
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
+            Controls.Add(createRecipeButton);
             Controls.Add(instructionValue);
             Controls.Add(selectCategoryDropDown);
             Controls.Add(label1);
             Controls.Add(ingredientInfoGroupBox);
             Controls.Add(recipeNameLabel);
             Controls.Add(recipeNameValue);
-            Controls.Add(addRecipeButton);
             Controls.Add(IngredientListBox);
             Controls.Add(headerLabel);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
-            Name = "CreateRecipe";
-            Text = "CreateRecipe";
+            Name = "CreateRecipeForm";
+            Text = "CreateRecipeForm";
             ingredientInfoGroupBox.ResumeLayout(false);
             ingredientInfoGroupBox.PerformLayout();
             ResumeLayout(false);
@@ -222,7 +224,6 @@
         private Label label1;
         private Label recipeNameLabel;
         private ComboBox selectCategoryDropDown;
-        private Button addRecipeButton;
         private GroupBox ingredientInfoGroupBox;
         private Label ingredientLabel;
         private TextBox ingredientValue;
@@ -230,5 +231,6 @@
         private TextBox measurementValue;
         private Button addIngredientButton;
         private RichTextBox instructionValue;
+        private Button createRecipeButton;
     }
 }

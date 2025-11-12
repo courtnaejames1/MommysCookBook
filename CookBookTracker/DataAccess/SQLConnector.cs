@@ -33,10 +33,31 @@ namespace Mommy_sCookBook.DataAccess
             }
         }
 
-        //public RecipeModel CreateRecipe(RecipeModel model)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public RecipeModel CreateRecipe(RecipeModel model)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("MommysCookBook")))
+            {
+                var r = new DynamicParameters();
+                r.Add("@recipeName", model.RecipeName);
+                r.Add("@CategoryID", model.Category.ID);
+                r.Add("@instructions", model.Instructions);
+                r.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("sp_Recipe_Insert", r, commandType: CommandType.StoredProcedure);
+                model.ID = r.Get<int>("@id");
+                return model;
+            }
+        }
+
+        public List<CategoryModel> GetAllCategories()
+        {
+            List<CategoryModel> output;
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.CnnString("MommysCookBook")))
+            {
+                output = connection.Query<CategoryModel>("spCategories_GetALL").ToList();
+            }
+            return output;
+        }
 
         //public ShoppingListItemsModel CreateShoppingList(ShoppingListItemsModel model)
         //{

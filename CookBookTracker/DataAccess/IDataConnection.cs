@@ -10,12 +10,12 @@ namespace Mommy_sCookBook.DataAccess
     public interface IDataConnection
     {
         IngredientModel CreateIngredient(IngredientModel model);
-        //RecipeModel CreateRecipe(RecipeModel model );
+        RecipeModel CreateRecipe(RecipeModel model );
         //ShoppingListItemsModel CreateShoppingList(ShoppingListItemsModel model);
         //List<IngredientModel> GetAllIngredients();
         //List<RecipeModel> GetAllRecipes();
 
-        //CategoryModel GetAllCategories();
+        List<CategoryModel> GetAllCategories();
 
     }
 }

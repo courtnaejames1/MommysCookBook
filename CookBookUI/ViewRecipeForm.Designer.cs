@@ -46,7 +46,7 @@
             headerLabel.ForeColor = SystemColors.MenuHighlight;
             headerLabel.Location = new Point(43, 38);
             headerLabel.Name = "headerLabel";
-            headerLabel.Size = new Size(134, 30);
+            headerLabel.Size = new Size(162, 37);
             headerLabel.TabIndex = 1;
             headerLabel.Text = "View Recipe";
             // 
@@ -57,7 +57,7 @@
             recipeNameLabel.ForeColor = SystemColors.MenuHighlight;
             recipeNameLabel.Location = new Point(43, 98);
             recipeNameLabel.Name = "recipeNameLabel";
-            recipeNameLabel.Size = new Size(146, 30);
+            recipeNameLabel.Size = new Size(179, 37);
             recipeNameLabel.TabIndex = 2;
             recipeNameLabel.Text = "Recipe Name:";
             recipeNameLabel.Click += label1_Click;
@@ -69,17 +69,17 @@
             tournamentNameLabel.ForeColor = SystemColors.MenuHighlight;
             tournamentNameLabel.Location = new Point(258, 98);
             tournamentNameLabel.Name = "tournamentNameLabel";
-            tournamentNameLabel.Size = new Size(97, 30);
+            tournamentNameLabel.Size = new Size(119, 37);
             tournamentNameLabel.TabIndex = 3;
             tournamentNameLabel.Text = "<name>";
             // 
             // recipeListBox
             // 
             recipeListBox.FormattingEnabled = true;
-            recipeListBox.ItemHeight = 21;
-            recipeListBox.Location = new Point(64, 183);
+            recipeListBox.ItemHeight = 28;
+            recipeListBox.Location = new Point(64, 190);
             recipeListBox.Name = "recipeListBox";
-            recipeListBox.Size = new Size(306, 361);
+            recipeListBox.Size = new Size(306, 340);
             recipeListBox.TabIndex = 4;
             // 
             // ingredientsLabel
@@ -89,7 +89,7 @@
             ingredientsLabel.ForeColor = SystemColors.MenuHighlight;
             ingredientsLabel.Location = new Point(64, 150);
             ingredientsLabel.Name = "ingredientsLabel";
-            ingredientsLabel.Size = new Size(122, 30);
+            ingredientsLabel.Size = new Size(150, 37);
             ingredientsLabel.TabIndex = 6;
             ingredientsLabel.Text = "Ingredients";
             // 
@@ -100,7 +100,7 @@
             instructionsLabel.ForeColor = SystemColors.MenuHighlight;
             instructionsLabel.Location = new Point(666, 150);
             instructionsLabel.Name = "instructionsLabel";
-            instructionsLabel.Size = new Size(123, 30);
+            instructionsLabel.Size = new Size(153, 37);
             instructionsLabel.TabIndex = 7;
             instructionsLabel.Text = "Instructions";
             // 
@@ -124,10 +124,10 @@
             addToShoppingListButton.FlatStyle = FlatStyle.Flat;
             addToShoppingListButton.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             addToShoppingListButton.ForeColor = SystemColors.MenuHighlight;
-            addToShoppingListButton.Location = new Point(403, 231);
+            addToShoppingListButton.Location = new Point(394, 193);
             addToShoppingListButton.Margin = new Padding(4);
             addToShoppingListButton.Name = "addToShoppingListButton";
-            addToShoppingListButton.Size = new Size(176, 58);
+            addToShoppingListButton.Size = new Size(176, 80);
             addToShoppingListButton.TabIndex = 10;
             addToShoppingListButton.Text = "Add Selected To Shopping List";
             addToShoppingListButton.UseVisualStyleBackColor = false;
@@ -143,7 +143,7 @@
             // 
             // ViewRecipeForm
             // 
-            AutoScaleDimensions = new SizeF(9F, 21F);
+            AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1029, 630);
             Controls.Add(instructionsValue);

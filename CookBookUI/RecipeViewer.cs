@@ -30,7 +30,7 @@ namespace CookBookUI
 
         private void createRecipeButton_Click(object sender, EventArgs e)
         {
-            CreateRecipe frm = new CreateRecipe();
+            CreateRecipeForm frm = new CreateRecipeForm();
             frm.Show();
         }
 
