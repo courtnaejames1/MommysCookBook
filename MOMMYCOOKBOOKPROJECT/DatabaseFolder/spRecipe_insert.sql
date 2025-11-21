@@ -1,5 +1,12 @@
+USE [MommyCookBookDB]
+GO
+/****** Object:  StoredProcedure [dbo].[spRecipe_insert]    Script Date: 11/21/2025 12:09:02 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-CREATE PROCEDURE spRecipe_insert 
+CREATE PROCEDURE [dbo].[spRecipe_insert] 
 	-- Add the parameters for the stored procedure here
 	@recipeName nvarchar(20),
 	@CategoryID int,
@@ -18,4 +25,4 @@ BEGIN
 
 	select @id = SCOPE_IDENTITY();
 END
-GO
+

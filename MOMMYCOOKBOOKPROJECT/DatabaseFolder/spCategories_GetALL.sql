@@ -1,5 +1,12 @@
+USE [MommyCookBookDB]
+GO
+/****** Object:  StoredProcedure [dbo].[spCategories_GetAll]    Script Date: 11/21/2025 12:06:34 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 
-CREATE PROCEDURE spCategories_GetAll 
+ALTER PROCEDURE [dbo].[spCategories_GetAll] 
 	-- Add the parameters for the stored procedure here
 	
 AS
@@ -11,14 +18,3 @@ BEGIN
     -- Insert statements for procedure here
 	SELECT * from Category
 END
-GO
-
---SET IDENTITY_INSERT Category ON;
-
---DBCC CHECKIDENT ('Category', RESEED, -1);
-
--- Disable manual insertion (back to automatic)
---SET IDENTITY_INSERT Category OFF;
-
---=insert into Category(CategoryID,CategoryName)
---values(0, 'Select an Option')
