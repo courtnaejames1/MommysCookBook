@@ -1,0 +1,52 @@
+CREATE DATABASE COOKBOOKNEW;
+Create Table IngredientsTable
+(
+	IngredientID int Identity(1,1) Not null , 
+	IngredientName nvarchar(50) Not Null, 
+	DefaultUnit nvarchar(20), 
+	primary key (IngredientID),
+	
+)
+
+Create Table RecipeCategory
+(
+	CategoryID int Identity(1,1) NOT NULL,
+	CategoryName nvarchar(20),
+	PRIMARY KEY (CategoryID)
+)
+CREATE TABLE RecipeTable 
+(
+	RecipeID INT Identity(1,1) NOT NULL,
+	CategoryID int,
+	RecipeName nvarchar(50),
+	DateAdded DATETIME DEFAULT GETDATE(),
+	DateModified DATETIME DEFAULT GETDATE(),
+	InstructionsDescriptions nvarchar(50),
+	PRIMARY KEY (RecipeID),
+	FOREIGN KEY (CategoryID) REFERENCES RecipeCategory(CategoryID)
+)
+
+CREATE TABLE RecipeIngredients
+(
+	RecipeIngredientID INT Identity(1,1) NOT NULL, 
+	IngredientID int ,
+	RecipeID int, 
+	Quantity nvarchar(10),
+	Unit nvarchar(10), 
+	PRIMARY KEY (RecipeIngredientID),
+	Foreign KEY (IngredientID) REFERENCES IngredientsTable(IngredientID),
+	FOREIGN KEY (RecipeID) REFERENCES RecipeTable(RecipeID)
+	
+)
+CREATE TABLE ShoppingListTable 
+(
+	ShoppingListID INT Identity(1,1) not null,
+	IngredientID int,
+	Quantity nvarchar(20),
+	Unit nvarchar (10),
+	IsPurchased bit, 
+	DateAdded DATETIME DEFAULT GETDATE(),
+	PRIMARY KEY (ShoppingListID),
+	Foreign KEY (IngredientID) REFERENCES IngredientsTable(IngredientID)
+	
+)
