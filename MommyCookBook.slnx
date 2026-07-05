@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/db/" />
+  <Folder Name="/src/">
+    <Project Path="src/MommyCookBook.Application/MommyCookBook.Application.csproj" />
+    <Project Path="src/MommyCookBook.Core/MommyCookBook.Core.csproj" />
+    <Project Path="src/MommyCookBook.Infrastructure/MommyCookBook.Infrastructure.csproj" />
+    <Project Path="src/MommyCookBook.Web/MommyCookBook.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
