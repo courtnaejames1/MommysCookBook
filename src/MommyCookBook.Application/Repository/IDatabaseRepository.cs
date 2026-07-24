@@ -7,11 +7,11 @@ namespace MommyCookBook.Application.Repository
 {
     public interface IDatabaseRepository
     {
-        Task<Recipe> CreateRecipeModel(Recipe recipeModel, CancellationToken cancellationToken);
-        Task<Ingredient> CreateIngredientModel(Ingredient ingredientModel, CancellationToken cancellationToken);
-        Task<Category> CreateCategoryModel(Category categoryModel, CancellationToken cancellationToken);
+        Task <Recipe>CreateRecipeModel(Recipe recipeModel, CancellationToken cancellationToken);
+        Task <Ingredient>CreateIngredientModel(Ingredient ingredientModel, CancellationToken cancellationToken);
+        Task <Category?> CreateCategoryModel(Category categoryModel, CancellationToken cancellationToken);
         Task<IReadOnlyList<Recipe>> GetAllRecipes(CancellationToken cancellationToken);
         Task<IReadOnlyList<Category>> GetAllCategories(CancellationToken cancellationToken);
-        Task<Recipe> DeleteRecipe(Recipe recipeModel, CancellationToken cancellationToken);
+        Task DeleteRecipe(Recipe recipeModel, CancellationToken cancellationToken);
     }
 }
