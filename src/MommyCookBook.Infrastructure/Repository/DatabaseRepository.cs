@@ -16,8 +16,8 @@ namespace MommyCookBook.Infrastructure.Repository
     {
         public async Task<Category?> CreateCategoryModel(Category categoryModel, CancellationToken cancellationToken)
         {
-            await using DbConnection connection = connectionFactory.CreateConnection("hi"); 
-            // TODO: Replace "hi" with the actual connection string or name of the connection string in your configuration.
+            await using DbConnection connection = connectionFactory.CreateConnection(); 
+            
             var parameters = new DynamicParameters();
             parameters.Add("@categoryName", categoryModel.CategoryName, DbType.String, ParameterDirection.Input);
             parameters.Add("@id", categoryModel.CategoryId, DbType.Int32, ParameterDirection.Output);
@@ -38,7 +38,7 @@ namespace MommyCookBook.Infrastructure.Repository
 
         public async Task<Ingredient> CreateIngredientModel(Ingredient ingredientModel, CancellationToken cancellationToken)
         {
-            await using DbConnection connection = connectionFactory.CreateConnection("hi");
+            await using DbConnection connection = connectionFactory.CreateConnection();
 
             var parameters = new DynamicParameters();
             parameters.Add("@ingredientName", ingredientModel.IngredientName, DbType.String, ParameterDirection.Input);
@@ -60,7 +60,7 @@ namespace MommyCookBook.Infrastructure.Repository
 
         public async Task<Recipe> CreateRecipeModel(Recipe recipeModel, CancellationToken cancellationToken)
         {
-            await using DbConnection connection = connectionFactory.CreateConnection("hi");
+            await using DbConnection connection = connectionFactory.CreateConnection();
 
             var parameters = new DynamicParameters();
             parameters.Add("@recipeName", recipeModel.RecipeName, DbType.String, ParameterDirection.Input);
@@ -84,7 +84,7 @@ namespace MommyCookBook.Infrastructure.Repository
 
         public async Task DeleteRecipe(Recipe recipeModel, CancellationToken cancellationToken)
         {
-            await using DbConnection connection = connectionFactory.CreateConnection("hi");
+            await using DbConnection connection = connectionFactory.CreateConnection();
 
             var parameters = new DynamicParameters();
             parameters.Add("@recipeId", recipeModel.RecipeId, DbType.Int32, ParameterDirection.Input);
@@ -101,7 +101,7 @@ namespace MommyCookBook.Infrastructure.Repository
 
         public async Task<IReadOnlyList<Category>> GetAllCategories(CancellationToken cancellationToken)
         {
-            await using DbConnection connection = connectionFactory.CreateConnection("hi");
+            await using DbConnection connection = connectionFactory.CreateConnection();
             IEnumerable<Category> categories = await connection.QueryAsync<Category>(
                 new CommandDefinition(
                     "spCategories_GetAll",
@@ -110,18 +110,14 @@ namespace MommyCookBook.Infrastructure.Repository
                 ));            
 
             List<Category> result = categories.AsList();
-            foreach (var category in categories)
-            {
-                result.Add(category);
-            };
-
+            
             return result;
 
         }
 
         public async Task<IReadOnlyList<Recipe>> GetAllRecipes(CancellationToken cancellationToken)
         {
-            await using DbConnection connection = connectionFactory.CreateConnection("hi");
+            await using DbConnection connection = connectionFactory.CreateConnection();
             IEnumerable<Recipe> recipes = await connection.QueryAsync<Recipe>(
                 new CommandDefinition(
                     "spRecipes_GetAll",
@@ -130,9 +126,17 @@ namespace MommyCookBook.Infrastructure.Repository
                 ));
 
             List<Recipe> result = recipes.AsList();
-            foreach (var recipe in recipes)
+            foreach (var recipe in result)
             {
-                result.Add(recipe);
+                IEnumerable<Ingredient> ingredients = await connection.QueryAsync<Ingredient>(
+                    new CommandDefinition(
+                        "spIngredients_GetByRecipe",
+                        new { recipeId = recipe.RecipeId },
+                        commandType: CommandType.StoredProcedure,
+                        cancellationToken: cancellationToken
+                    ));
+                recipe.Ingredients = ingredients.ToList();
+                
             };
 
             return result;
