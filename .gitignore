@@ -13,7 +13,7 @@
 *.config
 
 #App Settings 
-src/MommyCookBook.Web/appsettings.Development.json
+/src/MommyCookBook.Web/appsettings.Development.json
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -420,3 +420,4 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
