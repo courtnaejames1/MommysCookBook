@@ -12,7 +12,7 @@ using System.Text;
 
 namespace MommyCookBook.Infrastructure.Repository
 {
-    internal class IngredientRepository(IOptions<DatabaseOptions> options) :IIngredientRepository
+    public class IngredientRepository(IOptions<DatabaseOptions> options) :IIngredientRepository
     {
         private readonly string _connectionString = options.Value.ConnectionString;
         public async Task<Ingredient> CreateIngredientModel(Ingredient ingredientModel, CancellationToken cancellationToken)

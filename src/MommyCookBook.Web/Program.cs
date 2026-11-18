@@ -1,3 +1,6 @@
+using MommyCookBook.Application.Options;
+using MommyCookBook.Application.Repository;
+using MommyCookBook.Infrastructure.Repository;
 using MommyCookBook.Web.Components;
 using MudBlazor.Services;
 
@@ -8,6 +11,13 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
 builder.Services.AddMudServices();
+builder.Services.AddScoped<IRecipeRepository, RecipeRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IIngredientRepository, IngredientRepository>();
+
+
+
+        
 
 var app = builder.Build();
 

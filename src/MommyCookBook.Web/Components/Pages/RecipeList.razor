@@ -1,6 +1,28 @@
 ﻿@page "/recipe-list"
+using MommyCookBook.Application.Interfaces;
+
 <h3>RecipeList</h3>
 
-@code {
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Date Created</th>
+            <th scope="col">Last Modified</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recipe in _recipes)
+        {
+            <tr>
+                <td>@recipe.RecipeName</td>
+                <td>@recipe.Category</td>
+                <td>@recipe.DateAdded.ToString("MM/dd/yyyy")</td>
+                <td>@recipe.DateModified.ToString("MM/dd/yyyy")</td>
+            </tr>
+        }
+        )
+    </tbody>
+</table>
 
-}
