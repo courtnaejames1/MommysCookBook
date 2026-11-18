@@ -7,9 +7,9 @@ using System.Text;
 
 namespace MommyCookBook.Infrastructure
 {
-    public static class ServiceCollectionExtensions
+    public static class DependencyInjection
     {
-        public static IServiceCollection AddMommyCookBookInfrastructureServices(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddTransient<IRecipeRepository, RecipeRepository>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
