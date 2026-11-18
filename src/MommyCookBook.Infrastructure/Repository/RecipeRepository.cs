@@ -22,12 +22,12 @@ namespace MommyCookBook.Infrastructure.Repository
 
             var parameters = new DynamicParameters();
             parameters.Add("@recipeName", recipeModel.RecipeName, DbType.String, ParameterDirection.Input);
-            parameters.Add("@CategoryID", recipeModel.Category.CategoryId, DbType.Int32, ParameterDirection.Input);
+            parameters.Add("@CategoryID", recipeModel.CategoryID, DbType.Int32, ParameterDirection.Input);
             parameters.Add("@instructions", recipeModel.Instructions, DbType.String, ParameterDirection.Input);
             parameters.Add("@id", recipeModel.RecipeId, DbType.Int32, ParameterDirection.Output);
 
             CommandDefinition commandDefinition = new CommandDefinition(
-                commandText: "dbo.spRecipes_Insert",
+                commandText: "dbo.spRecipe_Insert",
                 parameters: parameters,
                 commandType: CommandType.StoredProcedure,
                 cancellationToken: cancellationToken);
@@ -48,7 +48,7 @@ namespace MommyCookBook.Infrastructure.Repository
             parameters.Add("@recipeId", recipeModel.RecipeId, DbType.Int32, ParameterDirection.Input);
 
             CommandDefinition connectionDefinition = new CommandDefinition(
-                commandText: "dbo.spRecipes_Delete",
+                commandText: "dbo.spRecipe_Delete",
                 parameters: parameters,
                 commandType: CommandType.StoredProcedure,
                 cancellationToken: cancellationToken);
@@ -72,7 +72,7 @@ namespace MommyCookBook.Infrastructure.Repository
             {
                 IEnumerable<Ingredient> ingredients = await connection.QueryAsync<Ingredient>(
                     new CommandDefinition(
-                        "spIngredients_GetByRecipe",
+                        "spIngredient_GetByRecipe",
                         new { recipeId = recipe.RecipeId },
                         commandType: CommandType.StoredProcedure,
                         cancellationToken: cancellationToken

@@ -4,12 +4,7 @@ using Microsoft.Extensions.Options;
 using MommyCookBook.Application.Options;
 using MommyCookBook.Application.Repository;
 using MommyCookBook.Core;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Data.Entity.Infrastructure;
-using System.Text;
 
 namespace MommyCookBook.Infrastructure.Repository
 {
@@ -32,7 +27,7 @@ namespace MommyCookBook.Infrastructure.Repository
 
             await connection.QueryFirstOrDefaultAsync<Category>(commandDefinition);
 
-            categoryModel.CategoryId = parameters.Get<int>("@CategoryId");
+            categoryModel.CategoryId = parameters.Get<int>("@id");
 
             return categoryModel;
 

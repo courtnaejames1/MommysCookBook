@@ -12,6 +12,9 @@
 *.env
 *.config
 
+#App Settings 
+src/MommyCookBook.Web/appsettings.Development.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

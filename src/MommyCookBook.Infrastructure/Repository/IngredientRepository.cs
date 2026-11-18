@@ -24,7 +24,7 @@ namespace MommyCookBook.Infrastructure.Repository
             parameters.Add("@id", ingredientModel.IngredientId, DbType.Int32, ParameterDirection.Output);
 
             CommandDefinition commandDefinition = new CommandDefinition(
-                commandText: "dbo.spIngredients_Insert",
+                commandText: "dbo.spIngredient_Insert",
                 parameters: parameters,
                 commandType: CommandType.StoredProcedure,
                 cancellationToken: cancellationToken);
@@ -35,6 +35,23 @@ namespace MommyCookBook.Infrastructure.Repository
 
             return ingredientModel;
 
+        }
+
+        public async Task<List<Ingredient>> GetIngredientsByRecipeId(int recipeId, CancellationToken cancellationToken)
+        {
+            await using SqlConnection connection = new(_connectionString);
+            
+            var parameters = new DynamicParameters();
+            parameters.Add("@recipeId", recipeId, DbType.Int32, ParameterDirection.Input);
+
+            CommandDefinition commandDefinition = new CommandDefinition(
+                commandText: "dbo.spIngredient_GetByRecipe",
+                parameters: parameters,
+                commandType: CommandType.StoredProcedure,
+                cancellationToken: cancellationToken);
+
+            var ingredients = await connection.QueryAsync<Ingredient>(commandDefinition);
+            return ingredients.ToList();
         }
     }
 }
