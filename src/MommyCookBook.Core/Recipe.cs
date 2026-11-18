@@ -9,7 +9,7 @@ namespace MommyCookBook.Core
     {
         public int RecipeId { get; set; }
         public required string RecipeName { get; set; }
-        public required Category Category { get; set; }
+        public required int CategoryID { get; set; }
         public required IReadOnlyList<Ingredient> Ingredients { get; set; }
         public required string Instructions { get; set; }
         public required DateTime DateAdded { get; set; }
