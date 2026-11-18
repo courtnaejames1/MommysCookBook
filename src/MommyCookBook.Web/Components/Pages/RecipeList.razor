@@ -1,5 +1,4 @@
 ﻿@page "/recipe-list"
-using MommyCookBook.Application.Interfaces;
 
 <h3>RecipeList</h3>
 
@@ -15,14 +14,14 @@ using MommyCookBook.Application.Interfaces;
     <tbody>
         @foreach (var recipe in _recipes)
         {
-            <tr>
+            <tr @onclick="() => NavigateToRecipeDetails(recipe.RecipeId)">
                 <td>@recipe.RecipeName</td>
-                <td>@recipe.Category</td>
+                <td>@recipe.CategoryID</td>
                 <td>@recipe.DateAdded.ToString("MM/dd/yyyy")</td>
                 <td>@recipe.DateModified.ToString("MM/dd/yyyy")</td>
             </tr>
         }
-        )
+        
     </tbody>
 </table>
 

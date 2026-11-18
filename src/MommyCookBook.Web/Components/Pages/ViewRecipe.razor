@@ -1,6 +1,25 @@
-﻿@page "/view-recipe"
+﻿@page "/view-recipe/{recipeId:int}"
 <h3>ViewRecipes</h3>
 
-@code {
 
-}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Unit</th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ingredient in _ingredients)
+        {
+            <tr>
+                <td>@ingredient.IngredientName</td>
+                <td>@ingredient.Quantity</td>
+                <td>@ingredient.Unit</td>
+                
+            </tr>
+        }
+
+    </tbody>
+</table>
